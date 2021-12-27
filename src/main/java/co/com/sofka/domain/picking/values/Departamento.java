@@ -2,18 +2,19 @@ package co.com.sofka.domain.picking.values;
 
 
 import co.com.sofka.domain.generic.ValueObject;
+
 import java.util.Objects;
 
-public class NumeroIdentificacion implements ValueObject<Integer> {
+public class Departamento implements ValueObject<String> {
 
-    private final Integer value;
+    private final String value;
 
-    public NumeroIdentificacion(Integer value) {
+    public Departamento(String value) {
         this.value = Objects.requireNonNull(value);
     }
 
     @Override
-    public Integer value() {
+    public String value() {
         return value;
     }
 
@@ -21,7 +22,7 @@ public class NumeroIdentificacion implements ValueObject<Integer> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        NumeroIdentificacion that = (NumeroIdentificacion) o;
+        Departamento that = (Departamento) o;
         return Objects.equals(value, that.value);
     }
 
@@ -29,6 +30,7 @@ public class NumeroIdentificacion implements ValueObject<Integer> {
     public int hashCode() {
         return Objects.hash(value);
     }
+
 
 
 }

@@ -2,13 +2,14 @@ package co.com.sofka.domain.picking.values;
 
 
 import co.com.sofka.domain.generic.ValueObject;
+
 import java.util.Objects;
 
-public class NumeroIdentificacion implements ValueObject<Integer> {
+public class Consecutivo implements ValueObject<Integer> {
 
     private final Integer value;
 
-    public NumeroIdentificacion(Integer value) {
+    public Consecutivo(Integer value) {
         this.value = Objects.requireNonNull(value);
     }
 
@@ -21,7 +22,7 @@ public class NumeroIdentificacion implements ValueObject<Integer> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        NumeroIdentificacion that = (NumeroIdentificacion) o;
+        Consecutivo that = (Consecutivo) o;
         return Objects.equals(value, that.value);
     }
 
@@ -29,6 +30,4 @@ public class NumeroIdentificacion implements ValueObject<Integer> {
     public int hashCode() {
         return Objects.hash(value);
     }
-
-
 }

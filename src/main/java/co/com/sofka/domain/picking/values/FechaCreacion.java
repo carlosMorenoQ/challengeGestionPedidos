@@ -1,27 +1,23 @@
 package co.com.sofka.domain.picking.values;
 
-
 import co.com.sofka.domain.generic.ValueObject;
+
+import java.util.Date;
 import java.util.Objects;
 
-public class NumeroIdentificacion implements ValueObject<Integer> {
+public final class FechaCreacion implements ValueObject<Date> {
 
-    private final Integer value;
+    private final Date value;
 
-    public NumeroIdentificacion(Integer value) {
-        this.value = Objects.requireNonNull(value);
-    }
-
-    @Override
-    public Integer value() {
-        return value;
+    public FechaCreacion(Date value) {
+        this.value = Objects.requireNonNull(value,"la fecha no puede ser null");
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        NumeroIdentificacion that = (NumeroIdentificacion) o;
+        FechaCreacion that = (FechaCreacion) o;
         return Objects.equals(value, that.value);
     }
 
@@ -30,5 +26,9 @@ public class NumeroIdentificacion implements ValueObject<Integer> {
         return Objects.hash(value);
     }
 
+    @Override
+    public Date value() {
+        return value;
+    }
 
 }
