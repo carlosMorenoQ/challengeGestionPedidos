@@ -5,12 +5,12 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Item implements ValueObject<Item.Value> {
+public class ItemPedido implements ValueObject<ItemPedido.Value> {
 
     private final Descripcion descripcion;
     private final Cantidad cantidad;
 
-    public Item (Descripcion descripcion, Cantidad cantidad){
+    public ItemPedido(Descripcion descripcion, Cantidad cantidad){
         this.cantidad =cantidad;
         this.descripcion = descripcion;
     }
@@ -43,8 +43,8 @@ public class Item implements ValueObject<Item.Value> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Item item = (Item) o;
-        return Objects.equals(descripcion, item.descripcion) && Objects.equals(cantidad, item.cantidad);
+        ItemPedido itemPedido = (ItemPedido) o;
+        return Objects.equals(descripcion, itemPedido.descripcion) && Objects.equals(cantidad, itemPedido.cantidad);
     }
 
     @Override

@@ -3,24 +3,23 @@ package co.com.sofka.domain.picking.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
-import java.util.Objects;
 import java.util.Set;
 
 public class Pedido implements ValueObject<Pedido.Value> {
 
     private final Consecutivo consecutivo;
-    private final Set<Item> items;
+    private final Set<ItemPedido> itemPedidos;
     private final Cliente cliente;
     private final DireccionPedidio direccionPedido;
 
     public Pedido(
             Consecutivo consecutivo,
-            Set<Item> items,
+            Set<ItemPedido> itemPedidos,
             Cliente cliente,
             DireccionPedidio direccionPedido){
 
         this.consecutivo =consecutivo;
-        this.items = items;
+        this.itemPedidos = itemPedidos;
         this.cliente = cliente;
         this.direccionPedido = direccionPedido;
     }
@@ -35,8 +34,8 @@ public class Pedido implements ValueObject<Pedido.Value> {
             }
 
             @Override
-            public Set<Item> items() {
-                return items;
+            public Set<ItemPedido> items() {
+                return itemPedidos;
             }
 
             @Override
@@ -54,7 +53,7 @@ public class Pedido implements ValueObject<Pedido.Value> {
 
     public interface Value{
         Consecutivo consecutivo();
-        Set<Item> items();
+        Set<ItemPedido> items();
         Cliente cliente();
         DireccionPedidio direccionPedido();
     }
