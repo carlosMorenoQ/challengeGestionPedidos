@@ -1,31 +1,32 @@
-package co.com.sofka.domain.procesamiento.events;
+package co.com.sofka.domain.procesamiento.command;
 
-import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.generics.Item;
-import co.com.sofka.domain.procesamiento.values.Cliente;
-import co.com.sofka.domain.procesamiento.values.Consecutivo;
-import co.com.sofka.domain.procesamiento.values.DireccionEntrega;
-import co.com.sofka.domain.procesamiento.values.PedidoId;
+import co.com.sofka.domain.generic.Command;
+import co.com.sofka.domain.procesamiento.values.*;
 
-import java.util.Set;
+public class CrearPedido extends Command {
 
-public class PedidoCreado extends DomainEvent {
 
+    private final ProcesamientoId procesamientoId;
     private final PedidoId pedidoId;
     private final Consecutivo consecutivo;
     private final Cliente cliente;
     private final DireccionEntrega direccionEntrega;
 
-    public PedidoCreado(
+    public CrearPedido(
+            ProcesamientoId procesamientoId,
             PedidoId pedidoId,
             Consecutivo consecutivo,
             Cliente cliente,
             DireccionEntrega direccionEntrega) {
-        super("sofka.procesamiento.pedidoCreado");
+        this.procesamientoId = procesamientoId;
         this.pedidoId = pedidoId;
         this.consecutivo = consecutivo;
         this.cliente = cliente;
-        this.direccionEntrega= direccionEntrega;
+        this.direccionEntrega = direccionEntrega;
+    }
+
+    public ProcesamientoId getProcesamientoId() {
+        return procesamientoId;
     }
 
     public PedidoId getPedidoId() {
@@ -43,6 +44,4 @@ public class PedidoCreado extends DomainEvent {
     public DireccionEntrega getDireccionEntrega() {
         return direccionEntrega;
     }
-
-
 }
