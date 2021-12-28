@@ -18,8 +18,10 @@ public class OrdenParaAlistamiento extends Entity<OrdenParaAlistamientoId> {
 
     public OrdenParaAlistamiento(
             OrdenParaAlistamientoId entityId,
-            String codigo, PedidoId pedidoId,
-            Set<Item> items, Cliente cliente,
+            String codigo,
+            PedidoId pedidoId,
+            Set<Item> items,
+            Cliente cliente,
             DireccionEntrega direccionEntrega,
             Fecha fecha) {
         super(entityId);

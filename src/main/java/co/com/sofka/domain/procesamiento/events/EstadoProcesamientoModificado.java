@@ -21,7 +21,7 @@ public class EstadoProcesamientoModificado extends DomainEvent {
         return estadoProcesamientoId;
     }
 
-    public EstadoProcesamientov getEstadoProcesamiento() {
+    public EstadoProcesamientov getEstadoProcesamientov() {
         return estadoProcesamientov;
     }
 }
