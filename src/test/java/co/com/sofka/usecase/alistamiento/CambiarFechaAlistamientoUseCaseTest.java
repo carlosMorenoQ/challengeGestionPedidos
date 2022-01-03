@@ -3,13 +3,10 @@ package co.com.sofka.usecase.alistamiento;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.alistamiento.Alistamiento;
-import co.com.sofka.domain.alistamiento.command.AgregarEtapaDelAlistamiento;
+import co.com.sofka.domain.alistamiento.command.CambiarFechaAlistamiento;
 import co.com.sofka.domain.alistamiento.events.AlistamientoCreado;
-import co.com.sofka.domain.alistamiento.events.EtapaDelAlistamientoAgregada;
-import co.com.sofka.domain.alistamiento.values.Etapa;
+import co.com.sofka.domain.alistamiento.events.FechaAlistamientoCambiada;
 import co.com.sofka.domain.alistamiento.values.IdAlistamiento;
-import co.com.sofka.domain.alistamiento.values.IdEtapaDelAlistamiento;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.genericValues.Fecha;
 import org.junit.jupiter.api.Assertions;
@@ -19,6 +16,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -26,41 +24,38 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class AgregarEtapaDelAlistamientoUseCaseTest {
+class CambiarFechaAlistamientoUseCaseTest {
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
-    void agregarEtapaDelAlistamiento() {
+    void cambiarFechaAlistamiento(){
 
+        Date date = new Date();
         IdAlistamiento idAlistamiento = IdAlistamiento.of("xxxxx");
-        IdEtapaDelAlistamiento idEtapaDelAlistamiento = IdEtapaDelAlistamiento.of("ccccc");
-        Fecha fechaEtapa = new Fecha(new Date());
-        Etapa etapa = new Etapa("en preparacion");
+        Fecha fechaAlistamiento = new Fecha(date);
 
-        var command = new AgregarEtapaDelAlistamiento(
+        var command = new CambiarFechaAlistamiento(
                 idAlistamiento,
-                idEtapaDelAlistamiento,
-                fechaEtapa,
-                etapa
+                fechaAlistamiento
         );
 
-        var usecase = new AgregarEtapaDelAlistamientoUseCase();
+        var usecase = new CambiarFechaAlistamientoUseCase();
 
         when(repository.getEventsBy("xxxxx")).thenReturn(events());
 
         usecase.addRepository(repository);
 
-        var events = UseCaseHandler.getInstance()
+        var events= UseCaseHandler.getInstance()
                 .setIdentifyExecutor(idAlistamiento.value())
                 .syncExecutor(usecase, new RequestCommand<>(command))
                 .orElseThrow()
                 .getDomainEvents();
 
-        var event = (EtapaDelAlistamientoAgregada)events.get(0);
+        var event = (FechaAlistamientoCambiada)events.get(0);
 
-        Assertions.assertEquals("en preparacion", event.getEtapa().value());
+        Assertions.assertEquals(date,event.getFechaAlistamiento().value());
         Mockito.verify(repository).getEventsBy("xxxxx");
 
     }
@@ -70,4 +65,5 @@ class AgregarEtapaDelAlistamientoUseCaseTest {
                 new Fecha(new Date())
         ));
     }
+
 }

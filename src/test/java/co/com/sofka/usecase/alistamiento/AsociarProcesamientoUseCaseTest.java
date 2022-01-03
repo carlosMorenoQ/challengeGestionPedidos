@@ -3,15 +3,13 @@ package co.com.sofka.usecase.alistamiento;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.alistamiento.Alistamiento;
-import co.com.sofka.domain.alistamiento.command.AgregarEtapaDelAlistamiento;
+import co.com.sofka.domain.alistamiento.command.AsociarProcesamiento;
 import co.com.sofka.domain.alistamiento.events.AlistamientoCreado;
-import co.com.sofka.domain.alistamiento.events.EtapaDelAlistamientoAgregada;
-import co.com.sofka.domain.alistamiento.values.Etapa;
+import co.com.sofka.domain.alistamiento.events.ProcesamientoAsociado;
 import co.com.sofka.domain.alistamiento.values.IdAlistamiento;
-import co.com.sofka.domain.alistamiento.values.IdEtapaDelAlistamiento;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.genericValues.Fecha;
+import co.com.sofka.domain.procesamiento.values.IdProcesamiento;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,27 +24,22 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class AgregarEtapaDelAlistamientoUseCaseTest {
+class AsociarProcesamientoUseCaseTest {
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
-    void agregarEtapaDelAlistamiento() {
+    void asociarProcesamiento(){
 
         IdAlistamiento idAlistamiento = IdAlistamiento.of("xxxxx");
-        IdEtapaDelAlistamiento idEtapaDelAlistamiento = IdEtapaDelAlistamiento.of("ccccc");
-        Fecha fechaEtapa = new Fecha(new Date());
-        Etapa etapa = new Etapa("en preparacion");
-
-        var command = new AgregarEtapaDelAlistamiento(
+        IdProcesamiento idProcesamiento = IdProcesamiento.of("ccccc");
+        var command = new AsociarProcesamiento(
                 idAlistamiento,
-                idEtapaDelAlistamiento,
-                fechaEtapa,
-                etapa
+                idProcesamiento
         );
 
-        var usecase = new AgregarEtapaDelAlistamientoUseCase();
+        var usecase = new AsociarProcesamientoUseCase();
 
         when(repository.getEventsBy("xxxxx")).thenReturn(events());
 
@@ -54,13 +47,13 @@ class AgregarEtapaDelAlistamientoUseCaseTest {
 
         var events = UseCaseHandler.getInstance()
                 .setIdentifyExecutor(idAlistamiento.value())
-                .syncExecutor(usecase, new RequestCommand<>(command))
+                .syncExecutor(usecase,new RequestCommand<>(command))
                 .orElseThrow()
                 .getDomainEvents();
 
-        var event = (EtapaDelAlistamientoAgregada)events.get(0);
+        var event = (ProcesamientoAsociado)events.get(0);
 
-        Assertions.assertEquals("en preparacion", event.getEtapa().value());
+        Assertions.assertEquals(IdProcesamiento.of("ccccc").value(),event.getIdProcesamiento().value());
         Mockito.verify(repository).getEventsBy("xxxxx");
 
     }
@@ -70,4 +63,6 @@ class AgregarEtapaDelAlistamientoUseCaseTest {
                 new Fecha(new Date())
         ));
     }
+
+
 }
