@@ -30,7 +30,7 @@ public class EtapaDelProcesamiento extends Entity<IdEtapaDelProcesamiento> {
         return fecha;
     }
 
-    public Etapa etapa() {
+    public Etapa etapa  () {
         return etapa;
     }
 
