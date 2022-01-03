@@ -1,8 +1,8 @@
-package co.com.sofka.domain.procesamiento;
+package co.com.sofka.domain.procesamiento.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.domain.generics.Fecha;
-import co.com.sofka.domain.generics.Item;
+import co.com.sofka.domain.genericValues.Fecha;
+import co.com.sofka.domain.genericValues.Item;
 import co.com.sofka.domain.procesamiento.values.*;
 
 import java.util.Set;

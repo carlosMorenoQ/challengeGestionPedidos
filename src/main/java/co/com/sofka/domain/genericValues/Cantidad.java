@@ -1,20 +1,19 @@
-package co.com.sofka.domain.alistamiento.values;
+package co.com.sofka.domain.genericValues;
 
 
 import co.com.sofka.domain.generic.ValueObject;
-
 import java.util.Objects;
 
-public class EstadoAlistamientoValue implements ValueObject<String> {
+public class Cantidad implements ValueObject<Integer> {
 
-    private final String value;
+    private final Integer value;
 
-    public EstadoAlistamientoValue(String value) {
+    public Cantidad(Integer value) {
         this.value = Objects.requireNonNull(value);
     }
 
     @Override
-    public String value() {
+    public Integer value() {
         return value;
     }
 
@@ -22,7 +21,7 @@ public class EstadoAlistamientoValue implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EstadoAlistamientoValue that = (EstadoAlistamientoValue) o;
+        Cantidad that = (Cantidad) o;
         return Objects.equals(value, that.value);
     }
 
@@ -30,7 +29,4 @@ public class EstadoAlistamientoValue implements ValueObject<String> {
     public int hashCode() {
         return Objects.hash(value);
     }
-
-
-
 }

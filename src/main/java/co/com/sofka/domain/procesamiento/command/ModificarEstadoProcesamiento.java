@@ -1,27 +1,27 @@
 package co.com.sofka.domain.procesamiento.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.domain.procesamiento.EstadoProcesamiento;
+import co.com.sofka.domain.procesamiento.entities.EstadoProcesamiento;
 import co.com.sofka.domain.procesamiento.values.EstadoProcesamientov;
-import co.com.sofka.domain.procesamiento.values.ProcesamientoId;
+import co.com.sofka.domain.procesamiento.values.IdProcesamiento;
 
 public class ModificarEstadoProcesamiento extends Command {
 
-    private final ProcesamientoId procesamientoId;
+    private final IdProcesamiento idProcesamiento;
     private final EstadoProcesamiento estadoProcesamiento;
     private final EstadoProcesamientov estadoProcesamientov;
 
     public ModificarEstadoProcesamiento(
-            ProcesamientoId procesamientoId,
+            IdProcesamiento idProcesamiento,
             EstadoProcesamiento estadoProcesamiento,
             EstadoProcesamientov estadoProcesamientov) {
-        this.procesamientoId = procesamientoId;
+        this.idProcesamiento = idProcesamiento;
         this.estadoProcesamiento = estadoProcesamiento;
         this.estadoProcesamientov = estadoProcesamientov;
     }
 
-    public ProcesamientoId getProcesamientoId() {
-        return procesamientoId;
+    public IdProcesamiento getProcesamientoId() {
+        return idProcesamiento;
     }
 
     public EstadoProcesamiento getEstadoProcesamiento() {

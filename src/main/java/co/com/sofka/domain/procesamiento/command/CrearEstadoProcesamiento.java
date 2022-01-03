@@ -1,7 +1,7 @@
 package co.com.sofka.domain.procesamiento.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.domain.generics.Fecha;
+import co.com.sofka.domain.genericValues.Fecha;
 import co.com.sofka.domain.procesamiento.values.EstadoProcesamientoId;
 import co.com.sofka.domain.procesamiento.values.EstadoProcesamientov;
 

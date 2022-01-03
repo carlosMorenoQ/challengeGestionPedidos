@@ -1,16 +1,16 @@
 package co.com.sofka.domain.procesamiento.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.domain.generics.Fecha;
-import co.com.sofka.domain.procesamiento.EstadoProcesamiento;
-import co.com.sofka.domain.procesamiento.OrdenParaAlistamiento;
-import co.com.sofka.domain.procesamiento.Pedido;
+import co.com.sofka.domain.genericValues.Fecha;
+import co.com.sofka.domain.procesamiento.entities.EstadoProcesamiento;
+import co.com.sofka.domain.procesamiento.entities.OrdenParaAlistamiento;
+import co.com.sofka.domain.procesamiento.entities.Pedido;
 import co.com.sofka.domain.procesamiento.values.Procesador;
-import co.com.sofka.domain.procesamiento.values.ProcesamientoId;
+import co.com.sofka.domain.procesamiento.values.IdProcesamiento;
 
 public class CrearProcesamiento extends Command {
 
-    private final ProcesamientoId procesamientoId;
+    private final IdProcesamiento idProcesamiento;
     private final EstadoProcesamiento estadoProcesamiento;
     private final OrdenParaAlistamiento ordenParaAlistamiento;
     private final Pedido pedido;
@@ -18,13 +18,13 @@ public class CrearProcesamiento extends Command {
     private final Procesador procesador;
 
     public CrearProcesamiento(
-            ProcesamientoId procesamientoId,
+            IdProcesamiento idProcesamiento,
             EstadoProcesamiento estadoProcesamiento,
             OrdenParaAlistamiento ordenParaAlistamiento,
             Pedido pedido,
             Fecha fecha,
             Procesador procesador) {
-        this.procesamientoId = procesamientoId;
+        this.idProcesamiento = idProcesamiento;
         this.estadoProcesamiento = estadoProcesamiento;
         this.ordenParaAlistamiento = ordenParaAlistamiento;
         this.pedido = pedido;
@@ -32,8 +32,8 @@ public class CrearProcesamiento extends Command {
         this.procesador = procesador;
     }
 
-    public ProcesamientoId getProcesamientoId() {
-        return procesamientoId;
+    public IdProcesamiento getProcesamientoId() {
+        return idProcesamiento;
     }
 
     public EstadoProcesamiento getEstadoProcesamiento() {

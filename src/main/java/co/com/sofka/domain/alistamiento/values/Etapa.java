@@ -1,15 +1,15 @@
-package co.com.sofka.domain.generics;
+package co.com.sofka.domain.alistamiento.values;
 
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Descripcion implements ValueObject<String> {
+public class Etapa implements ValueObject<String> {
 
     private final String value;
 
-    public Descripcion(String value) {
+    public Etapa(String value) {
         this.value = Objects.requireNonNull(value);
     }
 
@@ -22,7 +22,7 @@ public class Descripcion implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Descripcion that = (Descripcion) o;
+        Etapa that = (Etapa) o;
         return Objects.equals(value, that.value);
     }
 
@@ -30,7 +30,5 @@ public class Descripcion implements ValueObject<String> {
     public int hashCode() {
         return Objects.hash(value);
     }
-
-
 
 }

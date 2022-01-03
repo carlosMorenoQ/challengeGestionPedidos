@@ -1,6 +1,9 @@
 package co.com.sofka.domain.procesamiento;
 
 import co.com.sofka.domain.generic.EventChange;
+import co.com.sofka.domain.procesamiento.entities.EstadoProcesamiento;
+import co.com.sofka.domain.procesamiento.entities.OrdenParaAlistamiento;
+import co.com.sofka.domain.procesamiento.entities.Pedido;
 import co.com.sofka.domain.procesamiento.events.*;
 
 import java.util.HashSet;

@@ -1,10 +1,9 @@
-package co.com.sofka.domain.procesamiento;
+package co.com.sofka.domain.procesamiento.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.domain.generics.Fecha;
+import co.com.sofka.domain.genericValues.Fecha;
 import co.com.sofka.domain.procesamiento.values.EstadoProcesamientoId;
 import co.com.sofka.domain.procesamiento.values.EstadoProcesamientov;
-import co.com.sofka.domain.procesamiento.values.ProcesamientoId;
 
 public class EstadoProcesamiento extends Entity<EstadoProcesamientoId> {
 

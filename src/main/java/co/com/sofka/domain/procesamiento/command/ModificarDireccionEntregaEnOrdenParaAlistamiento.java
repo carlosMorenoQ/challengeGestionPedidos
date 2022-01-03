@@ -1,28 +1,27 @@
 package co.com.sofka.domain.procesamiento.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.domain.procesamiento.Procesamiento;
 import co.com.sofka.domain.procesamiento.values.DireccionEntrega;
 import co.com.sofka.domain.procesamiento.values.OrdenParaAlistamientoId;
-import co.com.sofka.domain.procesamiento.values.ProcesamientoId;
+import co.com.sofka.domain.procesamiento.values.IdProcesamiento;
 
 public class ModificarDireccionEntregaEnOrdenParaAlistamiento extends Command {
 
-    private final ProcesamientoId procesamientoId;
+    private final IdProcesamiento idProcesamiento;
     private final OrdenParaAlistamientoId ordenParaAlistamientoId;
     private final DireccionEntrega direccionEntrega;
 
     public ModificarDireccionEntregaEnOrdenParaAlistamiento(
-            ProcesamientoId procesamientoId,
+            IdProcesamiento idProcesamiento,
             OrdenParaAlistamientoId ordenParaAlistamientoId,
             DireccionEntrega direccionEntrega) {
-        this.procesamientoId = procesamientoId;
+        this.idProcesamiento = idProcesamiento;
         this.ordenParaAlistamientoId = ordenParaAlistamientoId;
         this.direccionEntrega = direccionEntrega;
     }
 
-    public ProcesamientoId getProcesamientoId() {
-        return procesamientoId;
+    public IdProcesamiento getProcesamientoId() {
+        return idProcesamiento;
     }
 
     public OrdenParaAlistamientoId getOrdenParaAlistamientoId() {

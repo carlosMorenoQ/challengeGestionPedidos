@@ -1,7 +1,7 @@
-package co.com.sofka.domain.procesamiento;
+package co.com.sofka.domain.procesamiento.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.domain.generics.Item;
+import co.com.sofka.domain.genericValues.Item;
 import co.com.sofka.domain.procesamiento.values.Cliente;
 import co.com.sofka.domain.procesamiento.values.Consecutivo;
 import co.com.sofka.domain.procesamiento.values.DireccionEntrega;

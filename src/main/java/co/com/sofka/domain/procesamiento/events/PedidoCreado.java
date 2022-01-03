@@ -1,13 +1,10 @@
 package co.com.sofka.domain.procesamiento.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.generics.Item;
 import co.com.sofka.domain.procesamiento.values.Cliente;
 import co.com.sofka.domain.procesamiento.values.Consecutivo;
 import co.com.sofka.domain.procesamiento.values.DireccionEntrega;
 import co.com.sofka.domain.procesamiento.values.PedidoId;
-
-import java.util.Set;
 
 public class PedidoCreado extends DomainEvent {
 

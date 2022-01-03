@@ -1,19 +1,20 @@
-package co.com.sofka.domain.generics;
+package co.com.sofka.domain.genericValues;
 
 
 import co.com.sofka.domain.generic.ValueObject;
+
 import java.util.Objects;
 
-public class Cantidad implements ValueObject<Integer> {
+public class Descripcion implements ValueObject<String> {
 
-    private final Integer value;
+    private final String value;
 
-    public Cantidad(Integer value) {
+    public Descripcion(String value) {
         this.value = Objects.requireNonNull(value);
     }
 
     @Override
-    public Integer value() {
+    public String value() {
         return value;
     }
 
@@ -21,7 +22,7 @@ public class Cantidad implements ValueObject<Integer> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Cantidad that = (Cantidad) o;
+        Descripcion that = (Descripcion) o;
         return Objects.equals(value, that.value);
     }
 
@@ -29,4 +30,7 @@ public class Cantidad implements ValueObject<Integer> {
     public int hashCode() {
         return Objects.hash(value);
     }
+
+
+
 }

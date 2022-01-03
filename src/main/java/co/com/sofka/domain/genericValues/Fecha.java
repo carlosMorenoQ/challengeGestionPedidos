@@ -1,11 +1,11 @@
-package co.com.sofka.domain.generics;
+package co.com.sofka.domain.genericValues;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Date;
 import java.util.Objects;
 
-public final class Fecha implements ValueObject<Date> {
+public class Fecha implements ValueObject<Date> {
 
     private final Date value;
 

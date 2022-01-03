@@ -2,16 +2,18 @@ package co.com.sofka.domain.procesamiento;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.domain.generics.Fecha;
-import co.com.sofka.domain.generics.Item;
+import co.com.sofka.domain.genericValues.Fecha;
+import co.com.sofka.domain.genericValues.Item;
+import co.com.sofka.domain.procesamiento.entities.EstadoProcesamiento;
+import co.com.sofka.domain.procesamiento.entities.OrdenParaAlistamiento;
+import co.com.sofka.domain.procesamiento.entities.Pedido;
 import co.com.sofka.domain.procesamiento.events.*;
 import co.com.sofka.domain.procesamiento.values.*;
 
 import java.util.List;
 import java.util.Objects;
 
-public class Procesamiento extends AggregateEvent<ProcesamientoId> {
+public class Procesamiento extends AggregateEvent<IdProcesamiento> {
 
     protected EstadoProcesamiento estadoProcesamiento;
     protected OrdenParaAlistamiento ordenParaAlistamiento;
@@ -20,7 +22,7 @@ public class Procesamiento extends AggregateEvent<ProcesamientoId> {
     protected Procesador procesador;
 
     public Procesamiento(
-            ProcesamientoId entityId,
+            IdProcesamiento entityId,
             EstadoProcesamiento estadoProcesamiento,
             OrdenParaAlistamiento ordenParaAlistamiento,
             Pedido pedido, Fecha fecha,
@@ -33,15 +35,15 @@ public class Procesamiento extends AggregateEvent<ProcesamientoId> {
         this.procesador = procesador;
     }
 
-    public Procesamiento(ProcesamientoId entityId) {
+    public Procesamiento(IdProcesamiento entityId) {
         super(entityId);
         subscribe(new ProcesamientoChange(this));
     }
 
     public static Procesamiento from(
-            ProcesamientoId procesamientoId,
+            IdProcesamiento idProcesamiento,
             List<DomainEvent> events) {
-        var procesamiento = new Procesamiento(procesamientoId);
+        var procesamiento = new Procesamiento(idProcesamiento);
         events.forEach(procesamiento::applyEvent);
         return procesamiento;
     }

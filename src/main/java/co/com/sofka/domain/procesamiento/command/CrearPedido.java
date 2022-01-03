@@ -6,27 +6,27 @@ import co.com.sofka.domain.procesamiento.values.*;
 public class CrearPedido extends Command {
 
 
-    private final ProcesamientoId procesamientoId;
+    private final IdProcesamiento idProcesamiento;
     private final PedidoId pedidoId;
     private final Consecutivo consecutivo;
     private final Cliente cliente;
     private final DireccionEntrega direccionEntrega;
 
     public CrearPedido(
-            ProcesamientoId procesamientoId,
+            IdProcesamiento idProcesamiento,
             PedidoId pedidoId,
             Consecutivo consecutivo,
             Cliente cliente,
             DireccionEntrega direccionEntrega) {
-        this.procesamientoId = procesamientoId;
+        this.idProcesamiento = idProcesamiento;
         this.pedidoId = pedidoId;
         this.consecutivo = consecutivo;
         this.cliente = cliente;
         this.direccionEntrega = direccionEntrega;
     }
 
-    public ProcesamientoId getProcesamientoId() {
-        return procesamientoId;
+    public IdProcesamiento getProcesamientoId() {
+        return idProcesamiento;
     }
 
     public PedidoId getPedidoId() {

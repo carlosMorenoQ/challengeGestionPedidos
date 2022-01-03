@@ -3,6 +3,8 @@ package co.com.sofka.domain.alistamiento.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Objects;
+
 public class Cliente implements ValueObject<Cliente.Value> {
 
     private final String nombres;
@@ -41,6 +43,19 @@ public class Cliente implements ValueObject<Cliente.Value> {
                 return documentoIdentificacion;
             }
         };
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(nombres, cliente.nombres) && Objects.equals(apellidos, cliente.apellidos) && Objects.equals(telefono, cliente.telefono) && Objects.equals(documentoIdentificacion, cliente.documentoIdentificacion);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombres, apellidos, telefono, documentoIdentificacion);
     }
 
     public interface Value{
