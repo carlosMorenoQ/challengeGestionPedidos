@@ -4,29 +4,30 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.procesamiento.values.Cliente;
 import co.com.sofka.domain.procesamiento.values.Consecutivo;
 import co.com.sofka.domain.procesamiento.values.DireccionEntrega;
-import co.com.sofka.domain.procesamiento.values.PedidoId;
+import co.com.sofka.domain.procesamiento.values.IdPedido;
 
 public class PedidoCreado extends DomainEvent {
 
-    private final PedidoId pedidoId;
+
+    private final IdPedido idPedido;
     private final Consecutivo consecutivo;
     private final Cliente cliente;
     private final DireccionEntrega direccionEntrega;
 
     public PedidoCreado(
-            PedidoId pedidoId,
+            IdPedido idPedido,
             Consecutivo consecutivo,
             Cliente cliente,
             DireccionEntrega direccionEntrega) {
-        super("sofka.procesamiento.pedidoCreado");
-        this.pedidoId = pedidoId;
+        super("sofka.procesamiento.pedidocreado");
+        this.idPedido = idPedido;
         this.consecutivo = consecutivo;
         this.cliente = cliente;
-        this.direccionEntrega= direccionEntrega;
+        this.direccionEntrega = direccionEntrega;
     }
 
-    public PedidoId getPedidoId() {
-        return pedidoId;
+    public IdPedido getIdPedido() {
+        return idPedido;
     }
 
     public Consecutivo getConsecutivo() {
@@ -40,6 +41,4 @@ public class PedidoCreado extends DomainEvent {
     public DireccionEntrega getDireccionEntrega() {
         return direccionEntrega;
     }
-
-
 }

@@ -1,31 +1,34 @@
-package co.com.sofka.domain.procesamiento.events;
+package co.com.sofka.domain.procesamiento.command;
 
-import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.procesamiento.values.Cliente;
-import co.com.sofka.domain.procesamiento.values.DireccionEntrega;
-import co.com.sofka.domain.procesamiento.values.IdOrdenParaAlistamiento;
-import co.com.sofka.domain.procesamiento.values.IdPedido;
+import co.com.sofka.domain.generic.Command;
+import co.com.sofka.domain.procesamiento.values.*;
 
-public class OrdenParaAlistamientoCreada extends DomainEvent {
+public class CrearOrdenParaAlistamientoCommand extends Command {
 
+    private final IdProcesamiento idProcesamiento;
     private final IdOrdenParaAlistamiento idOrdenParaAlistamiento;
     private final String codigo;
     private final IdPedido idPedido;
     private final Cliente cliente;
     private final DireccionEntrega direccionEntrega;
 
-    public OrdenParaAlistamientoCreada(
+    public CrearOrdenParaAlistamientoCommand(
+            IdProcesamiento idProcesamiento,
             IdOrdenParaAlistamiento idOrdenParaAlistamiento,
             String codigo,
             IdPedido idPedido,
             Cliente cliente,
             DireccionEntrega direccionEntrega) {
-        super("sofka.procesamiento.ordenparaalistamientocreada");
+        this.idProcesamiento = idProcesamiento;
         this.idOrdenParaAlistamiento = idOrdenParaAlistamiento;
         this.codigo = codigo;
         this.idPedido = idPedido;
         this.cliente = cliente;
         this.direccionEntrega = direccionEntrega;
+    }
+
+    public IdProcesamiento getIdProcesamiento() {
+        return idProcesamiento;
     }
 
     public IdOrdenParaAlistamiento getIdOrdenParaAlistamiento() {

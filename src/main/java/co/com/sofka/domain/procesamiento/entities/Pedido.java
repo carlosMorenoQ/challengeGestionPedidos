@@ -5,11 +5,11 @@ import co.com.sofka.domain.genericValues.Item;
 import co.com.sofka.domain.procesamiento.values.Cliente;
 import co.com.sofka.domain.procesamiento.values.Consecutivo;
 import co.com.sofka.domain.procesamiento.values.DireccionEntrega;
-import co.com.sofka.domain.procesamiento.values.PedidoId;
+import co.com.sofka.domain.procesamiento.values.IdPedido;
 
 import java.util.Set;
 
-public class Pedido extends Entity<PedidoId> {
+public class Pedido extends Entity<IdPedido> {
 
     private final Consecutivo consecutivo;
     private final Set<Item> items;
@@ -17,12 +17,12 @@ public class Pedido extends Entity<PedidoId> {
     private DireccionEntrega direccionEntrega;
 
     public Pedido(
-            PedidoId entityId,
+            IdPedido idPedido,
             Consecutivo consecutivo,
             Set<Item> items,
             Cliente cliente,
             DireccionEntrega direccionEntrega) {
-        super(entityId);
+        super(idPedido);
         this.consecutivo = consecutivo;
         this.items = items;
         this.cliente = cliente;

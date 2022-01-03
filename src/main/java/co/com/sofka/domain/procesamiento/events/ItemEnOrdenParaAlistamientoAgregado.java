@@ -2,23 +2,24 @@ package co.com.sofka.domain.procesamiento.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.genericValues.Item;
-import co.com.sofka.domain.procesamiento.values.OrdenParaAlistamientoId;
+import co.com.sofka.domain.procesamiento.values.IdOrdenParaAlistamiento;
 
 public class ItemEnOrdenParaAlistamientoAgregado extends DomainEvent {
 
-    private final OrdenParaAlistamientoId ordenParaAlistamientoId;
+    private final IdOrdenParaAlistamiento idOrdenParaAlistamiento;
     private final Item item;
 
     public ItemEnOrdenParaAlistamientoAgregado(
-            OrdenParaAlistamientoId ordenParaAlistamientoId,
+            IdOrdenParaAlistamiento idOrdenParaAlistamiento,
             Item item) {
-        super("sofka.procedimiento.itemEnOrdenParaAlistamientoAgregado");
-        this.ordenParaAlistamientoId = ordenParaAlistamientoId;
+        super("sofka.procesamiento.ItemEnOrdenParaAlistamientoAgregado");
+
+        this.idOrdenParaAlistamiento = idOrdenParaAlistamiento;
         this.item = item;
     }
 
-    public OrdenParaAlistamientoId getOrdenParaAlistamientoId() {
-        return ordenParaAlistamientoId;
+    public IdOrdenParaAlistamiento getIdOrdenParaAlistamiento() {
+        return idOrdenParaAlistamiento;
     }
 
     public Item getItem() {

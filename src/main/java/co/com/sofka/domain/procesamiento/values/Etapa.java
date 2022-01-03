@@ -5,11 +5,11 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class EstadoProcesamientov implements ValueObject<String> {
+public class Etapa implements ValueObject<String> {
 
     private final String value;
 
-    public EstadoProcesamientov(String value) {
+    public Etapa(String value) {
         this.value = Objects.requireNonNull(value);
     }
 
@@ -22,7 +22,7 @@ public class EstadoProcesamientov implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EstadoProcesamientov that = (EstadoProcesamientov) o;
+        Etapa that = (Etapa) o;
         return Objects.equals(value, that.value);
     }
 

@@ -2,30 +2,30 @@ package co.com.sofka.domain.procesamiento.command;
 
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.domain.genericValues.Item;
-import co.com.sofka.domain.procesamiento.values.PedidoId;
+import co.com.sofka.domain.procesamiento.values.IdPedido;
 import co.com.sofka.domain.procesamiento.values.IdProcesamiento;
 
-public class AgregarItemDePedido extends Command {
+public class AgregarItemEnPedidoCommand extends Command {
 
     private final IdProcesamiento idProcesamiento;
-    private final PedidoId pedidoId;
+    private final IdPedido idPedido;
     private final Item item;
 
-    public AgregarItemDePedido(
+    public AgregarItemEnPedidoCommand(
             IdProcesamiento idProcesamiento,
-            PedidoId pedidoId,
+            IdPedido idPedido,
             Item item) {
         this.idProcesamiento = idProcesamiento;
-        this.pedidoId = pedidoId;
+        this.idPedido = idPedido;
         this.item = item;
     }
 
-    public IdProcesamiento getProcesamientoId() {
+    public IdProcesamiento getIdProcesamiento() {
         return idProcesamiento;
     }
 
-    public PedidoId getPedidoId() {
-        return pedidoId;
+    public IdPedido getIdPedido() {
+        return idPedido;
     }
 
     public Item getItem() {

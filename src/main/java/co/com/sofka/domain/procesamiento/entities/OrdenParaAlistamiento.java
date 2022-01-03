@@ -7,26 +7,26 @@ import co.com.sofka.domain.procesamiento.values.*;
 
 import java.util.Set;
 
-public class OrdenParaAlistamiento extends Entity<OrdenParaAlistamientoId> {
+public class OrdenParaAlistamiento extends Entity<IdOrdenParaAlistamiento> {
 
     private final String codigo;
-    private final PedidoId pedidoId;
+    private final IdPedido idPedido;
     private final Set<Item> items;
     private Cliente cliente;
     private DireccionEntrega direccionEntrega;
     private final Fecha fecha;
 
     public OrdenParaAlistamiento(
-            OrdenParaAlistamientoId entityId,
+            IdOrdenParaAlistamiento entityId,
             String codigo,
-            PedidoId pedidoId,
+            IdPedido idPedido,
             Set<Item> items,
             Cliente cliente,
             DireccionEntrega direccionEntrega,
             Fecha fecha) {
         super(entityId);
         this.codigo = codigo;
-        this.pedidoId = pedidoId;
+        this.idPedido = idPedido;
         this.items = items;
         this.cliente = cliente;
         this.direccionEntrega = direccionEntrega;
@@ -50,8 +50,8 @@ public class OrdenParaAlistamiento extends Entity<OrdenParaAlistamientoId> {
         return codigo;
     }
 
-    public PedidoId pedidoId() {
-        return pedidoId;
+    public IdPedido pedidoId() {
+        return idPedido;
     }
 
     public Set<Item> items() {

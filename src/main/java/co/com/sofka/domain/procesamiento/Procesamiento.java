@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.genericValues.Fecha;
 import co.com.sofka.domain.genericValues.Item;
-import co.com.sofka.domain.procesamiento.entities.EstadoProcesamiento;
+import co.com.sofka.domain.procesamiento.entities.EtapaDelProcesamiento;
 import co.com.sofka.domain.procesamiento.entities.OrdenParaAlistamiento;
 import co.com.sofka.domain.procesamiento.entities.Pedido;
 import co.com.sofka.domain.procesamiento.events.*;
@@ -15,24 +15,20 @@ import java.util.Objects;
 
 public class Procesamiento extends AggregateEvent<IdProcesamiento> {
 
-    protected EstadoProcesamiento estadoProcesamiento;
+    protected EtapaDelProcesamiento etapaDelProcesamiento;
     protected OrdenParaAlistamiento ordenParaAlistamiento;
     protected Pedido pedido;
-    protected Fecha fecha;
+    protected Fecha fechaProcesamiento;
     protected Procesador procesador;
 
     public Procesamiento(
-            IdProcesamiento entityId,
-            EstadoProcesamiento estadoProcesamiento,
-            OrdenParaAlistamiento ordenParaAlistamiento,
-            Pedido pedido, Fecha fecha,
+            IdProcesamiento idProcesamiento,
+            Fecha fechaProcesamiento,
             Procesador procesador) {
-        super(entityId);
-        this.estadoProcesamiento = estadoProcesamiento;
-        this.ordenParaAlistamiento = ordenParaAlistamiento;
-        this.pedido = pedido;
-        this.fecha = fecha;
-        this.procesador = procesador;
+        super(idProcesamiento);
+        appendChange(new ProcesamientoCreado(
+                fechaProcesamiento,
+                procesador)).apply();
     }
 
     public Procesamiento(IdProcesamiento entityId) {
@@ -49,80 +45,93 @@ public class Procesamiento extends AggregateEvent<IdProcesamiento> {
     }
 
 
-    public void agregarItemDePedido(PedidoId pedidoId, Item item) {
-        Objects.requireNonNull(item);
-        Objects.requireNonNull(pedidoId);
-        appendChange(new ItemDePedidoAgregado(
-                pedidoId,
-                item
+    public void crearOrdenParaAlistamiento(
+            IdOrdenParaAlistamiento idOrdenParaAlistamiento,
+            String codigo,
+            IdPedido idPedido,
+            Cliente cliente,
+            DireccionEntrega direccionEntrega) {
+        Objects.requireNonNull(idOrdenParaAlistamiento);
+        Objects.requireNonNull(codigo);
+        Objects.requireNonNull(idPedido);
+        Objects.requireNonNull(cliente);
+        Objects.requireNonNull(direccionEntrega);
+        appendChange(new OrdenParaAlistamientoCreada(
+                idOrdenParaAlistamiento,
+                codigo,
+                idPedido,
+                cliente,
+                direccionEntrega
         )).apply();
     }
 
-    public void modificarClienteDePedido(PedidoId pedidoId, Cliente cliente) {
-        Objects.requireNonNull(pedidoId);
-        Objects.requireNonNull(cliente);
-        appendChange(new ClienteDePedidoModificado(pedidoId, cliente)).apply();
+    public void crearEtapaDelProcesamiento(
+            IdEtapaDelProcesamiento idEtapaDelProcesamiento,
+            Fecha fecha,
+            Etapa etapa) {
+        Objects.requireNonNull(idEtapaDelProcesamiento);
+        Objects.requireNonNull(fecha);
+        Objects.requireNonNull(etapa);
+        appendChange(new EtapaDelProcesamientoCreada(
+                idEtapaDelProcesamiento,
+                fecha,
+                etapa
+        )).apply();
     }
 
-    public void modificarDireccionDePedido(
-            PedidoId pedidoId,
+    public void crearPedido(
+            IdPedido idPedido,
+            Consecutivo consecutivo,
+            Cliente cliente,
             DireccionEntrega direccionEntrega) {
-
-        Objects.requireNonNull(pedidoId);
+        Objects.requireNonNull(idPedido);
+        Objects.requireNonNull(consecutivo);
+        Objects.requireNonNull(cliente);
         Objects.requireNonNull(direccionEntrega);
-        appendChange(new DireccionDePedidoModificada(
-                pedidoId,
+        appendChange(new PedidoCreado(
+                idPedido,
+                consecutivo,
+                cliente,
                 direccionEntrega
         )).apply();
     }
 
     public void agregarItemEnOrdenParaAlistamiento(
-            OrdenParaAlistamientoId ordenParaAlistamientoId,
+            IdOrdenParaAlistamiento idOrdenParaAlistamiento,
             Item item) {
-        Objects.requireNonNull(ordenParaAlistamientoId);
+        Objects.requireNonNull(idOrdenParaAlistamiento);
         Objects.requireNonNull(item);
         appendChange(new ItemEnOrdenParaAlistamientoAgregado(
-                ordenParaAlistamientoId,
+                idOrdenParaAlistamiento,
                 item
         )).apply();
     }
 
-    public void modificarClienteEnOrdenParaAlistamiento(
-            OrdenParaAlistamientoId ordenParaAlistamientoId,
-            Cliente cliente) {
-        Objects.requireNonNull(ordenParaAlistamientoId);
-        Objects.requireNonNull(cliente);
-        appendChange(new ClienteEnOrdenParaAlistamientoModificado(
-                ordenParaAlistamientoId,
-                cliente
+    public void agregarItemEnPedido(
+            IdPedido idPedido,
+            Item item) {
+        Objects.requireNonNull(idPedido);
+        Objects.requireNonNull(item);
+        appendChange(new ItemEnPedidoAgregado(
+                idPedido,
+                item
         )).apply();
     }
 
-    public void modificarDireccionEntregaEnOrdenParaAlistamiento(
-            OrdenParaAlistamientoId ordenParaAlistamientoId,
-            DireccionEntrega direccionEntrega) {
-        Objects.requireNonNull(ordenParaAlistamientoId);
-        Objects.requireNonNull(direccionEntrega);
-        appendChange(new DireccionEntregaEnOrdenParaAlistamientoModificada(
-                ordenParaAlistamientoId,
-                direccionEntrega
-        )).apply();
-    }
-
-    public void modificarEstadoProcesamiento(
-            EstadoProcesamientoId estadoProcesamientoId,
-            EstadoProcesamientov estadoProcesamientov) {
-        Objects.requireNonNull(estadoProcesamientov);
-        Objects.requireNonNull(estadoProcesamientoId);
-        appendChange(new EstadoProcesamientoModificado(
-                estadoProcesamientoId,
-                estadoProcesamientov
+    public void modificarEtapaEnEtapaDelProcesamiento(
+            IdEtapaDelProcesamiento idEtapaDelProcesamiento,
+            Etapa etapa) {
+        Objects.requireNonNull(idEtapaDelProcesamiento);
+        Objects.requireNonNull(etapa);
+        appendChange(new EtapaEnEtapaDelProcesamientoModificada(
+                idEtapaDelProcesamiento,
+                etapa
         )).apply();
     }
 
 
-    public EstadoProcesamiento estadoProcesamiento() {
-        return estadoProcesamiento;
+    public EtapaDelProcesamiento etapaDelProcesamiento() {
+        return etapaDelProcesamiento;
     }
 
     public OrdenParaAlistamiento ordenParaAlistamiento() {
@@ -134,7 +143,7 @@ public class Procesamiento extends AggregateEvent<IdProcesamiento> {
     }
 
     public Fecha fecha() {
-        return fecha;
+        return fechaProcesamiento;
     }
 
     public Procesador procesador() {
