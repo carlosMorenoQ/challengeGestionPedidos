@@ -5,13 +5,11 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.alistamiento.command.CrearAlistamiento;
 import co.com.sofka.domain.alistamiento.events.AlistamientoCreado;
 import co.com.sofka.domain.alistamiento.values.IdAlistamiento;
-import co.com.sofka.domain.genericValues.Fecha;
+import co.com.sofka.domain.genericvalues.Fecha;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CrearAlistamientoUseCaseTest {
 

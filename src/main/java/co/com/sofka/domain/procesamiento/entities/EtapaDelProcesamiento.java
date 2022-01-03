@@ -1,7 +1,7 @@
 package co.com.sofka.domain.procesamiento.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.domain.genericValues.Fecha;
+import co.com.sofka.domain.genericvalues.Fecha;
 import co.com.sofka.domain.procesamiento.values.IdEtapaDelProcesamiento;
 import co.com.sofka.domain.procesamiento.values.Etapa;
 

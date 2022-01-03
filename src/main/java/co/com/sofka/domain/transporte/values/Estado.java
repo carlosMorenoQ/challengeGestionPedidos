@@ -1,16 +1,15 @@
-package co.com.sofka.domain.procesamiento.values;
-
+package co.com.sofka.domain.transporte.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class DireccionEntrega implements ValueObject<String> {
+public class Estado implements ValueObject<String> {
 
     private final String value;
 
-    public DireccionEntrega(String value) {
-        this.value = Objects.requireNonNull(value);
+    public Estado(String value) {
+        this.value = value;
     }
 
     @Override
@@ -22,15 +21,12 @@ public class DireccionEntrega implements ValueObject<String> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DireccionEntrega that = (DireccionEntrega) o;
-        return Objects.equals(value, that.value);
+        Estado estado = (Estado) o;
+        return Objects.equals(value, estado.value);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(value);
     }
-
-
-
 }

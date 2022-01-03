@@ -4,7 +4,7 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.genericValues.Fecha;
+import co.com.sofka.domain.genericvalues.Fecha;
 import co.com.sofka.domain.procesamiento.command.ModificarEtapaEnEtapaDelProcesamientoCommand;
 import co.com.sofka.domain.procesamiento.events.EtapaDelProcesamientoCreada;
 import co.com.sofka.domain.procesamiento.events.EtapaEnEtapaDelProcesamientoModificada;

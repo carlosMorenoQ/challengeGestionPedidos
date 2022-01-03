@@ -4,12 +4,8 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.genericValues.Cantidad;
-import co.com.sofka.domain.genericValues.Descripcion;
-import co.com.sofka.domain.genericValues.Fecha;
-import co.com.sofka.domain.genericValues.Item;
+import co.com.sofka.domain.genericvalues.*;
 import co.com.sofka.domain.procesamiento.command.AgregarItemEnPedidoCommand;
-import co.com.sofka.domain.procesamiento.events.ItemEnOrdenParaAlistamientoAgregado;
 import co.com.sofka.domain.procesamiento.events.ItemEnPedidoAgregado;
 import co.com.sofka.domain.procesamiento.events.OrdenParaAlistamientoCreada;
 import co.com.sofka.domain.procesamiento.events.ProcesamientoCreado;
@@ -24,7 +20,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

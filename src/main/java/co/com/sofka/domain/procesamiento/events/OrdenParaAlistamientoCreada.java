@@ -1,8 +1,8 @@
 package co.com.sofka.domain.procesamiento.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.procesamiento.values.Cliente;
-import co.com.sofka.domain.procesamiento.values.DireccionEntrega;
+import co.com.sofka.domain.genericvalues.Cliente;
+import co.com.sofka.domain.genericvalues.DireccionEntrega;
 import co.com.sofka.domain.procesamiento.values.IdOrdenParaAlistamiento;
 import co.com.sofka.domain.procesamiento.values.IdPedido;
 

@@ -6,8 +6,7 @@ import co.com.sofka.domain.alistamiento.events.*;
 import co.com.sofka.domain.alistamiento.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.genericValues.Fecha;
-import co.com.sofka.domain.genericValues.Item;
+import co.com.sofka.domain.genericvalues.*;
 import co.com.sofka.domain.procesamiento.values.IdProcesamiento;
 
 import java.util.List;

@@ -4,7 +4,7 @@ import co.com.sofka.domain.alistamiento.values.Etapa;
 import co.com.sofka.domain.alistamiento.values.IdAlistamiento;
 import co.com.sofka.domain.alistamiento.values.IdEtapaDelAlistamiento;
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.domain.genericValues.Fecha;
+import co.com.sofka.domain.genericvalues.Fecha;
 
 public class ModificarEtapaEnEtapaDelAlistamiento extends Command {
 

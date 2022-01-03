@@ -1,6 +1,8 @@
 package co.com.sofka.domain.procesamiento.command;
 
 import co.com.sofka.domain.generic.Command;
+import co.com.sofka.domain.genericvalues.Cliente;
+import co.com.sofka.domain.genericvalues.DireccionEntrega;
 import co.com.sofka.domain.procesamiento.values.*;
 
 public class CrearOrdenParaAlistamientoCommand extends Command {

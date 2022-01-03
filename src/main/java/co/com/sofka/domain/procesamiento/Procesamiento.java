@@ -2,8 +2,10 @@ package co.com.sofka.domain.procesamiento;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.genericValues.Fecha;
-import co.com.sofka.domain.genericValues.Item;
+import co.com.sofka.domain.genericvalues.Cliente;
+import co.com.sofka.domain.genericvalues.DireccionEntrega;
+import co.com.sofka.domain.genericvalues.Fecha;
+import co.com.sofka.domain.genericvalues.Item;
 import co.com.sofka.domain.procesamiento.entities.EtapaDelProcesamiento;
 import co.com.sofka.domain.procesamiento.entities.OrdenParaAlistamiento;
 import co.com.sofka.domain.procesamiento.entities.Pedido;

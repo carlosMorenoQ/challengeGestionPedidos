@@ -3,7 +3,7 @@ package co.com.sofka.domain.alistamiento.command;
 import co.com.sofka.domain.alistamiento.values.IdAlistamiento;
 import co.com.sofka.domain.alistamiento.values.IdOrdenParaTransporte;
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.domain.genericValues.Item;
+import co.com.sofka.domain.genericvalues.Item;
 
 public class AgregarItemEnOrdenParaTransporte extends Command {
 

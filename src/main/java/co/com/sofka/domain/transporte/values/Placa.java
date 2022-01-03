@@ -1,20 +1,19 @@
-package co.com.sofka.domain.alistamiento.values;
-
+package co.com.sofka.domain.transporte.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Codigo implements ValueObject<Integer> {
+public class Placa implements ValueObject<String> {
 
-    private final Integer value;
+    private final String value;
 
-    public Codigo(Integer value) {
-        this.value = Objects.requireNonNull(value);
+    public Placa(String value) {
+        this.value = value;
     }
 
     @Override
-    public Integer value() {
+    public String value() {
         return value;
     }
 
@@ -22,12 +21,13 @@ public class Codigo implements ValueObject<Integer> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Codigo that = (Codigo) o;
-        return Objects.equals(value, that.value);
+        Placa placa = (Placa) o;
+        return Objects.equals(value, placa.value);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(value);
     }
+
 }

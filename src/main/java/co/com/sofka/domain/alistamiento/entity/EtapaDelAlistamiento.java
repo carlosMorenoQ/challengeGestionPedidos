@@ -3,7 +3,7 @@ package co.com.sofka.domain.alistamiento.entity;
 import co.com.sofka.domain.alistamiento.values.Etapa;
 import co.com.sofka.domain.alistamiento.values.IdEtapaDelAlistamiento;
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.domain.genericValues.Fecha;
+import co.com.sofka.domain.genericvalues.Fecha;
 
 public class EtapaDelAlistamiento extends Entity<IdEtapaDelAlistamiento> {
 

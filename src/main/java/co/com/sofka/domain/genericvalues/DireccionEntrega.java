@@ -1,23 +1,28 @@
-package co.com.sofka.domain.genericValues;
+package co.com.sofka.domain.genericvalues;
+
 
 import co.com.sofka.domain.generic.ValueObject;
 
-import java.util.Date;
 import java.util.Objects;
 
-public class Fecha implements ValueObject<Date> {
+public class DireccionEntrega implements ValueObject<String> {
 
-    private final Date value;
+    private final String value;
 
-    public Fecha(Date value) {
-        this.value = Objects.requireNonNull(value,"la fecha no puede ser null");
+    public DireccionEntrega(String value) {
+        this.value = Objects.requireNonNull(value);
+    }
+
+    @Override
+    public String value() {
+        return value;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Fecha that = (Fecha) o;
+        DireccionEntrega that = (DireccionEntrega) o;
         return Objects.equals(value, that.value);
     }
 
@@ -26,9 +31,6 @@ public class Fecha implements ValueObject<Date> {
         return Objects.hash(value);
     }
 
-    @Override
-    public Date value() {
-        return value;
-    }
+
 
 }

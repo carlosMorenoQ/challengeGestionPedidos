@@ -11,7 +11,7 @@ import co.com.sofka.domain.alistamiento.values.Etapa;
 import co.com.sofka.domain.alistamiento.values.IdAlistamiento;
 import co.com.sofka.domain.alistamiento.values.IdEtapaDelAlistamiento;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.genericValues.Fecha;
+import co.com.sofka.domain.genericvalues.Fecha;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +21,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

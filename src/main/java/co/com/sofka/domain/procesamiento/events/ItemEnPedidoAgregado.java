@@ -1,7 +1,7 @@
 package co.com.sofka.domain.procesamiento.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.genericValues.Item;
+import co.com.sofka.domain.genericvalues.Item;
 import co.com.sofka.domain.procesamiento.values.IdPedido;
 
 public class ItemEnPedidoAgregado extends DomainEvent {

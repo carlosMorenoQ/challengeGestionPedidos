@@ -2,7 +2,10 @@ package co.com.sofka.domain.alistamiento.entity;
 
 import co.com.sofka.domain.alistamiento.values.*;
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.domain.genericValues.Item;
+import co.com.sofka.domain.genericvalues.Cliente;
+import co.com.sofka.domain.genericvalues.Codigo;
+import co.com.sofka.domain.genericvalues.DireccionEntrega;
+import co.com.sofka.domain.genericvalues.Item;
 
 import java.util.HashSet;
 import java.util.Set;

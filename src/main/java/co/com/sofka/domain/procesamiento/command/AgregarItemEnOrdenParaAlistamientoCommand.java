@@ -1,11 +1,9 @@
 package co.com.sofka.domain.procesamiento.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.domain.genericValues.Fecha;
-import co.com.sofka.domain.genericValues.Item;
+import co.com.sofka.domain.genericvalues.Item;
 import co.com.sofka.domain.procesamiento.values.IdOrdenParaAlistamiento;
 import co.com.sofka.domain.procesamiento.values.IdProcesamiento;
-import co.com.sofka.domain.procesamiento.values.Procesador;
 
 public class AgregarItemEnOrdenParaAlistamientoCommand extends Command {
 

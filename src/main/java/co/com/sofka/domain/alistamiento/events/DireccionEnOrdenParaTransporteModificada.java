@@ -1,8 +1,8 @@
 package co.com.sofka.domain.alistamiento.events;
 
-import co.com.sofka.domain.alistamiento.values.DireccionEntrega;
 import co.com.sofka.domain.alistamiento.values.IdOrdenParaTransporte;
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.genericvalues.DireccionEntrega;
 
 public class DireccionEnOrdenParaTransporteModificada extends DomainEvent {
 

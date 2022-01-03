@@ -2,6 +2,9 @@ package co.com.sofka.domain.alistamiento.command;
 
 import co.com.sofka.domain.alistamiento.values.*;
 import co.com.sofka.domain.generic.Command;
+import co.com.sofka.domain.genericvalues.Cliente;
+import co.com.sofka.domain.genericvalues.Codigo;
+import co.com.sofka.domain.genericvalues.DireccionEntrega;
 
 public class AgregarOrdenParaTransporte extends Command {
 
