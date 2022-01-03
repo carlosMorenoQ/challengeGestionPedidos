@@ -7,6 +7,7 @@ import co.com.sofka.domain.procesamiento.values.Consecutivo;
 import co.com.sofka.domain.genericvalues.DireccionEntrega;
 import co.com.sofka.domain.procesamiento.values.IdPedido;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Pedido extends Entity<IdPedido> {
@@ -19,12 +20,11 @@ public class Pedido extends Entity<IdPedido> {
     public Pedido(
             IdPedido idPedido,
             Consecutivo consecutivo,
-            Set<Item> items,
             Cliente cliente,
             DireccionEntrega direccionEntrega) {
         super(idPedido);
         this.consecutivo = consecutivo;
-        this.items = items;
+        this.items = new HashSet<>();
         this.cliente = cliente;
         this.direccionEntrega = direccionEntrega;
     }

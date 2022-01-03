@@ -7,6 +7,7 @@ import co.com.sofka.domain.genericvalues.Fecha;
 import co.com.sofka.domain.genericvalues.Item;
 import co.com.sofka.domain.procesamiento.values.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class OrdenParaAlistamiento extends Entity<IdOrdenParaAlistamiento> {
@@ -16,23 +17,19 @@ public class OrdenParaAlistamiento extends Entity<IdOrdenParaAlistamiento> {
     private final Set<Item> items;
     private Cliente cliente;
     private DireccionEntrega direccionEntrega;
-    private final Fecha fecha;
 
     public OrdenParaAlistamiento(
             IdOrdenParaAlistamiento entityId,
             String codigo,
             IdPedido idPedido,
-            Set<Item> items,
             Cliente cliente,
-            DireccionEntrega direccionEntrega,
-            Fecha fecha) {
+            DireccionEntrega direccionEntrega) {
         super(entityId);
         this.codigo = codigo;
         this.idPedido = idPedido;
-        this.items = items;
+        this.items = new HashSet<>();
         this.cliente = cliente;
         this.direccionEntrega = direccionEntrega;
-        this.fecha = fecha;
     }
 
     public void agregarItem(Item item) {
@@ -68,7 +65,4 @@ public class OrdenParaAlistamiento extends Entity<IdOrdenParaAlistamiento> {
         return direccionEntrega;
     }
 
-    public Fecha fecha() {
-        return fecha;
-    }
 }
